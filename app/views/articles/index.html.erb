@@ -1,0 +1,46 @@
+<h1>articles#index</h1>
+<p>Find me in app/views/articles/index.html.erb</p>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h2>Welcome <%= @user.name %></h2>
+    </div>
+  </div>
+</div>
+
+<div class="new-post">
+  <div type="button" class="btn btn-primary">
+    New post
+  </div>
+</div>
+<div class="new-post-form">
+
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-9">
+      <table style="width:100%">
+        <tr>
+          <th>Title</th>
+          <th>View Count</th>
+          <th>Author</th>
+          <th>Publish Date</th>
+          <th>Actions</th>
+        </tr>
+        <% @articles.each do |article| %>
+        <tr>
+          <td><%= article.title %></td>
+          <td><p><%= article.user_id %></p></td>
+          <td><%= @all_users.find(article.user_id).name %></td>
+          <td><%= article.publishDate %></td>
+          <td>
+            edit | show | delete
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
