@@ -16,6 +16,15 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.user_id = current_user.id
+
+
+    if @article.save
+      redirect_to root_path
+    else
+      puts @article.errors.full_messages
+      render :new
+    end
   end
 
   def edit
@@ -37,7 +46,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content, :publishDate)
+    params.require(:article).permit(:title, :content, :publishDate, :isPublic)
   end
 
 
