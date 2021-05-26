@@ -1,0 +1,25 @@
+<h1 class="title-heading">Showing</h1>
+
+
+<% if @article.isPublic || (!@article.isPublic && @article.user_id == current_user.id)%>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <h3><%= @article.title %></h3>
+        <p>
+          By: <%= @user.name %>
+        </p>
+        <p>
+          Published on: <%= @article.publishDate %>
+        </p>
+        <p>
+          <%= @article.content %>
+        </p>
+
+      </div>
+    </div>
+  </div>
+<% else %>
+<h1>Sorry, article is private and you are not the user</h1>
+<% end %>
