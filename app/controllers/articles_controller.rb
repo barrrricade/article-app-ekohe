@@ -1,16 +1,22 @@
 class ArticlesController < ApplicationController
-
+  before_action :find_article, only: [:destroy, :update, :edit, :show]
   def index
+    # order all articles to be in id descending order
     @articles = Article.all.order(id: :desc)
     @user = current_user
     @all_users = User.all
   end
 
   def show
-    @article = Article.find(params[:id])
+    # find the user associated with id
     @user = User.find(@article.user_id)
-    @article.view_count += 1
-    @article.save
+
+    # increase number of views with each click on show then save results
+    # only if it is public or if you are the owner if private
+    if @article.isPublic || (!@article.isPublic && @article.user_id == current_user.id)
+      @article.view_count += 1
+      @article.save
+    end
   end
 
   def new
@@ -31,16 +37,13 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
     @article.update(params[:article])
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
     redirect_to root_path, notice: 'article was successfully destroyed.'
   end
@@ -50,6 +53,10 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :content, :publishDate, :isPublic)
+  end
+
+  def find_article
+    @article = Article.find(params[:id])
   end
 
 

@@ -19,8 +19,8 @@
           label: "Give your article a title:"%>
 
 
-          <%= f.input :isPublic, :as => :boolean,
-          :input_html => { :checked => "checked" },
+          <%= f.input :isPublic, as: :boolean,
+          checked_value: 'true', unchecked_value: 'false',
           label: "Would you like it to be public?"
            %>
 
