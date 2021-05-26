@@ -40,7 +40,11 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.update(params[:article])
+    if @article.update(article_params)
+      redirect_to article_path(@article)
+    else
+      render :index
+    end
   end
 
   def destroy

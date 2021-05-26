@@ -12,7 +12,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to root_path, class: "navbar-brand" do %>
+          <%= link_to root_path, class: "nav-link" do%>
             <%= image_tag "icons/home.png", class: "home-icon nav-icon" %>
           <% end %>
         </li>
@@ -22,13 +22,9 @@
           <% end %>
         </li>
         <li class="nav-item active">
-          <%= link_to "create new article", new_article_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item active">
-          <p class="nav-link">search</p>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link" %>
+          <div class="search nav-link">
+            <%= image_tag "icons/search.png", class: "search-icon nav-icon"%>
+          </div>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

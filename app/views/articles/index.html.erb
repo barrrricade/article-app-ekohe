@@ -30,12 +30,25 @@
         <% @articles.each do |article| %>
           <% if article.isPublic %>
           <tr>
-            <td><%= article.title %></td>
+            <td><%= link_to "#{article.title}", article_path(article) %></td>
             <td><p><%= article.view_count %></p></td>
             <td><%= @all_users.find(article.user_id).name %></td>
             <td><%= article.publishDate %></td>
             <td>
-              edit | <%= link_to "show", article_path(article) %> | <%= link_to "delete", article_path(article), method: :delete  %>
+
+              <% if article.user_id == current_user.id %>
+                <%= link_to edit_article_path(article) do%>
+                  <%= image_tag "icons/pen.png", alt: "edit", class: "action-icons"%>
+                <% end %>
+                |
+                <%= link_to article_path(article), method: :delete  do%>
+                  <%= image_tag "icons/trash.png", alt: "delete", class: "action-icons"%>
+                <% end %>
+              <% else %>
+                <%= image_tag "icons/pen.png", alt: "edit", class: "inactive-icons"%>
+                |
+                <%= image_tag "icons/trash.png", alt: "delete", class: "inactive-icons"%>
+              <% end %>
             </td>
           </tr>
 
@@ -54,13 +67,19 @@
         <% @articles.each do |article| %>
         <% if !article.isPublic && article.user_id == current_user.id%>
         <tr>
-          <td><%= article.title %></td>
+          <td><%= link_to "#{article.title}", article_path(article) %></td>
           <td><p><%= article.view_count %></p></td>
           <td><%= @all_users.find(article.user_id).name %></td>
           <td><%= article.publishDate %></td>
-          <td>
-            edit | <%= link_to "show", article_path(article) %> | <%= link_to "delete", article_path(article), method: :delete  %>
-          </td>
+           <td>
+              <%= link_to edit_article_path(article) do %>
+                <%= image_tag "icons/pen.png", alt: "edit", class: "action-icons"%>
+              <% end %>
+              |
+              <%= link_to article_path(article), method: :delete  do %>
+              <%= image_tag "icons/trash.png", alt: "delete", class: "action-icons"%>
+              <% end %>
+            </td>
         </tr>
         <% end %>
         <% end %>
