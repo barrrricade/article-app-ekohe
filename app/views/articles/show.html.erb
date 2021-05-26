@@ -1,0 +1,20 @@
+
+<h1>Showing</h1>
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-9">
+      <h3><%= @article.title %></h3>
+      <p>
+        By: <%= @user.name %>
+      </p>
+      <p>
+        Published on: <%= @article.publishDate %>
+      </p>
+      <p>
+        <%= @article.content %>
+      </p>
+    </div>
+  </div>
+</div>

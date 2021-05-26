@@ -1,13 +1,16 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = Article.all
+    @articles = Article.all.order(id: :desc)
     @user = current_user
     @all_users = User.all
   end
 
   def show
-    @article = Article.new
+    @article = Article.find(params[:id])
+    @user = User.find(@article.user_id)
+    @article.view_count += 1
+    @article.save
   end
 
   def new

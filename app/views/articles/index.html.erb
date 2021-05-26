@@ -10,7 +10,7 @@
 </div>
 
 <div class="new-post">
-  <div type="button" class="btn btn-primary">
+  <div type="button" class="btn btn-success">
     <%= link_to "Create new article", new_article_path%>
   </div>
 </div>
@@ -30,11 +30,11 @@
         <% @articles.each do |article| %>
         <tr>
           <td><%= article.title %></td>
-          <td><p><%= article.user_id %></p></td>
+          <td><p><%= article.view_count %></p></td>
           <td><%= @all_users.find(article.user_id).name %></td>
           <td><%= article.publishDate %></td>
           <td>
-            edit | show | delete
+            edit | <%= link_to "show", article_path(article) %> | <%= link_to "delete", article_path(article), method: :delete  %>
           </td>
         </tr>
         <% end %>
