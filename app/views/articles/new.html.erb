@@ -1,10 +1,4 @@
-<h1>create new article</h1>
-
-
-<div class="form-headers">
-  <p id="new-art-title" class="fixed">Title</p>
-  <p id="new-art-isPublic" class="fixed">Set as Public?</p>
-</div>
+<h1 class="title-heading">create new article</h1>
 
 <div class="container">
   <div class="row justify-content-center">
@@ -18,19 +12,16 @@
           input_html: { autocomplete: "John Smith" },
           label: "Give your article a title:"%>
 
-
           <%= f.input :isPublic, as: :boolean,
           checked_value: 'true', unchecked_value: 'false',
           label: "Would you like it to be public?"
            %>
 
-          <%= f.input :publishDate
-           %>
+          <%= f.input :publishDate %>
 
           <%= f.input :content, as: :text,
           autofocus: true,
           label: "Create your article"%>
-
         </div>
 
         <div class="form-actions">
