@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_05_26_040606) do
     t.date "publishDate"
     t.string "content"
     t.bigint "user_id", null: false
-    t.integer "view", default: 0
+    t.integer "view_count", default: 0
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 

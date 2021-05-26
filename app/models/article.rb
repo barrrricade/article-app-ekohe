@@ -5,4 +5,5 @@ class Article < ApplicationRecord
   validates :isPublic, presence: true
   validates :content, presence: true
   validates :publishDate, presence: false
+  validates :view_count, presence: true
 end
