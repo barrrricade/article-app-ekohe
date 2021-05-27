@@ -7,8 +7,9 @@
         <div id="movies">
           <% if params[:query].present? %>
             <% @article_search.each do |article| %>
-              <h4><%= article.title %></h4>
-              <p><%= @all_users.find(article.user_id).name %></p>
+              <h4><%= article.content %></h4>
+              <p><%= @all_users.find(Article.find(article.id).user_id).name %></p>
+              <% raise %>
             <% end %>
           <% end %>
         </div>

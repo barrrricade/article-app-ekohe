@@ -67,7 +67,7 @@ class ArticlesController < ApplicationController
   def search_article
     if params[:query].present?
       # .joins(:user)
-      @article_search = Article.search_articles(params[:query])
+      @article_search = PgSearch.multisearch(params[:query])
       # raise
     end
   end
