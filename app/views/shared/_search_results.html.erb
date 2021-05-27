@@ -7,9 +7,19 @@
         <div id="movies">
           <% if params[:query].present? %>
             <% @article_search.each do |article| %>
-              <h4><%= article.content %></h4>
-              <p><%= @all_users.find(Article.find(article.id).user_id).name %></p>
-              <% raise %>
+              <% person = @all_users.where(name: article.content)[0] %>
+              <% if person.present? %>
+                <p>Author: <%= person.name %></p>
+                <p>Titles:</p>
+                <% @articles.where(user_id: person.id).each do |articlee| %>
+                  <p><%= articlee.title %></p>
+                <% end %>
+              <% else %>
+                <% if article.present? %>
+                  <h4><%= article.content %></h4>
+                  <p><%= @all_users.find(Article.find(article.searchable_id).user_id).name %></p>
+                <% end %>
+              <% end %>
             <% end %>
           <% end %>
         </div>

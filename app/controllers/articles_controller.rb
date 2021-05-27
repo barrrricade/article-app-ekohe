@@ -1,10 +1,9 @@
 class ArticlesController < ApplicationController
   before_action :find_article, only: [:destroy, :update, :edit, :show]
   before_action :search_article
-  before_action :set_all_users
+  before_action :set_all_users_and_articles
   def index
     # order all articles to be in id descending order
-    @articles = Article.all.order(id: :desc)
     @user = current_user
   end
 
@@ -68,12 +67,13 @@ class ArticlesController < ApplicationController
     if params[:query].present?
       # .joins(:user)
       @article_search = PgSearch.multisearch(params[:query])
-      # raise
     end
   end
 
-  def set_all_users
+  def set_all_users_and_articles
     @all_users = User.all
+    @articles = Article.all.order(id: :desc)
+
   end
 
 end
