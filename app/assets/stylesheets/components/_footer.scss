@@ -1,10 +1,14 @@
+body {
+  margin-bottom:200px; // for footer
+}
+
 .footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   // justify-content: space-between;
   justify-content: center;
-  height: 150px;
+  height: 200px;
   width: 100%;
   padding: 0px 50px;
   background: #F5F5F5;
@@ -31,9 +35,10 @@
   display: flex;
 }
 
-body {
-  margin-bottom:150px; // for footer
+.hidden {
+  display: none !important;
 }
+
 
 .footer-social-icon {
   height: 25px;
@@ -44,6 +49,26 @@ body {
   transform: translate(0, -3px);
 }
 
-.email {
+.hidden {
+  display: none !important;
+}
+
+.fade {
+  color: #000;
+}
+
+#email-icon {
     cursor: pointer;
 }
+
+// inserted into html avoid confusion
+#my-email {
+  // position: fixed;
+  // bottom: 5px;
+}
+
+
+.sample {
+  color: red;
+}
+
