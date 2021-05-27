@@ -1,10 +1,11 @@
 class ArticlesController < ApplicationController
   before_action :find_article, only: [:destroy, :update, :edit, :show]
+  before_action :search_article
+  before_action :set_all_users
   def index
     # order all articles to be in id descending order
     @articles = Article.all.order(id: :desc)
     @user = current_user
-    @all_users = User.all
   end
 
   def show
@@ -63,5 +64,16 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def search_article
+    if params[:query].present?
+      # .joins(:user)
+      @article_search = Article.search_articles(params[:query])
+      # raise
+    end
+  end
+
+  def set_all_users
+    @all_users = User.all
+  end
 
 end
