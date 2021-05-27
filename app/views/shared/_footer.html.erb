@@ -6,6 +6,11 @@
     ©2021 by Desmond Ip
   </div>
   <div class="footer-links">
-    <%= image_tag "icons/GitHub-Mark/PNG/GitHub-Mark-32px.png", alt: "alttext" %>
+    <%=  link_to "https://github.com/barrrricade/", :target => '_blank' do %>
+      <%= image_tag "icons/GitHub-Mark/PNG/GitHub-Mark-32px.png", alt: "github logo", class: "footer-social-icon"%>
+    <% end %>
+    <%=  link_to "https://www.linkedin.com/in/desmond-ip-47a432102/", :target => '_blank' do %>
+      <%= image_tag "icons/LinkedIn-Logos/LI-In-Bug.png", alt: "linkedin logo", class: "footer-social-icon"%>
+    <% end %>
   </div>
 </div>
