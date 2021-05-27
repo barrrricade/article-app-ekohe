@@ -27,6 +27,10 @@
   opacity: 0.4;
 }
 
+.footer-links {
+  display: flex;
+}
+
 body {
   margin-bottom:150px; // for footer
 }
@@ -34,4 +38,12 @@ body {
 .footer-social-icon {
   height: 25px;
   margin: 5px;
+}
+
+.footer-social-icon:hover {
+  transform: translate(0, -3px);
+}
+
+.email {
+    cursor: pointer;
 }
