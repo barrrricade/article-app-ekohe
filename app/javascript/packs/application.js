@@ -24,7 +24,8 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import { show_email, hover_email } from '../scripts/footer'
+import { show_email, show_gh, show_li } from '../scripts/footer'
+import { hide_search, show_search, background } from '../scripts/search_results'
 
 
 // Internal imports, e.g:
@@ -33,8 +34,9 @@ import { show_email, hover_email } from '../scripts/footer'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  background();
   show_email();
-  hover_email();
-
+  hide_search();
+  show_search();
 
 });

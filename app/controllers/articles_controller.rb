@@ -73,7 +73,6 @@ class ArticlesController < ApplicationController
   def set_all_users_and_articles
     @all_users = User.all
     @articles = Article.all.order(id: :desc)
-
   end
 
 end

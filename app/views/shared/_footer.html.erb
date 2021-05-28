@@ -8,14 +8,17 @@
   </div>
   <div class="footer-links">
     <%=  link_to "https://github.com/barrrricade/", :target => '_blank' do %>
-      <%= image_tag "icons/GitHub-Mark/PNG/GitHub-Mark-32px.png", alt: "github logo", class: "footer-social-icon"%>
+      <%= image_tag "icons/GitHub-Mark/PNG/GitHub-Mark-32px.png", alt: "github logo", class: "footer-social-icon", id:"gh-icon"%>
     <% end %>
     <%=  link_to "https://www.linkedin.com/in/desmond-ip-47a432102/", :target => '_blank' do %>
-      <%= image_tag "icons/LinkedIn-Logos/LI-In-Bug.png", alt: "linkedin logo", class: "footer-social-icon"%>
+      <%= image_tag "icons/LinkedIn-Logos/LI-In-Bug.png", alt: "linkedin logo", class: "footer-social-icon", id:"li-icon"%>
     <% end %>
     <%= image_tag "icons/email.png", alt: "linkedin logo", class: "footer-social-icon ", id:"email-icon"%>
   </div>
-  <div class="hidden" id="my-email" style="position: fixed; bottom: 5px;">
-    <p id="email-address">ipkinghangdesmond@gmail.com</p>
+  <div id="my-contact" style="position: fixed; bottom: 5px;">
+    <p id="email-address" class="hidden">ipkinghangdesmond@gmail.com</p>
+    <p id="gh-address" class="hidden">barrrricade</p>
+    <p id="li-address" class="hidden">desmond-ip-47a432102</p>
   </div>
+
 </div>
