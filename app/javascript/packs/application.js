@@ -36,6 +36,8 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   background();
   show_email();
+  show_gh();
+  show_li();
   hide_search();
   show_search();
 
