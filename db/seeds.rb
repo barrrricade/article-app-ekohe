@@ -13,6 +13,8 @@ Article.destroy_all
 p "seeding"
 me = User.create!(email: "desmond@gmail.com", password: "password", name: "desmond")
 jim = User.create!(email: "jimbean@gmail.com", password: "password", name: "Jim Bean")
+chicken = User.create!(email: "chicken@gmail.com", password: "password", name: "Chicken")
+cow = User.create!(email: "Cow@gmail.com", password: "password", name: "Coww")
 
 
 
@@ -23,6 +25,13 @@ Article.create!(title: "How to be happy again", user: me, content: "keep smiling
 Article.create!(title: "Organs and their weakness", user: jim, content: "Shatter the heart")
 Article.create!(title: "Stab Stab Stab", user: jim, content: "pull arrow from quiver, twirl and stab", isPublic: false)
 Article.create!(title: "Burn the hertic", user: jim, content: "Sin can only be cleansed with flames", isPublic: false)
+
+Article.create!(title: "Cow's diary", user: cow, content: "I love my big brother chicken", isPublic: true)
+Article.create!(title: "Cow's meals", user: cow, content: "Sin can only be cleansed with flames", isPublic: false)
+
+Article.create!(title: "I hate my sister", user: chicken, content: "Sin can only be cleansed with flames", isPublic: false)
+
+
 
 
 
