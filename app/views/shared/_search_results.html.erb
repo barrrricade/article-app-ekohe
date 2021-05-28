@@ -13,7 +13,7 @@
                   <p class="color-white">Author: <%= person.name %></p>
                   <p class="color-white">Titles:</p>
                   <% @articles.where(user_id: person.id).each do |articlee| %>
-                    <p class="color-white"><%= articlee.title %></p>
+                    <p class="color-white"><%= link_to articlee.title, article_path(article.searchable_id) %></p>
                   <% end %>
                 <% else %>
                   <% if article.present? %>
