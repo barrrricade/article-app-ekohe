@@ -5,7 +5,7 @@ Please enjoy
 
 Desmond
 ipkinghangdesmond@gmail.com
-\+ 86 188 9872 9073
-\+ 852 6364 6574
+\n\+ 86 188 9872 9073
+\n\+ 852 6364 6574
 GH barrrricade
 linkedin desmond-ip-47a432102
