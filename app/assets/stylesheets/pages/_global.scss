@@ -28,3 +28,14 @@ a {
 .hidden {
   display: none !important;
 }
+
+.AA-logo {
+  height: 45px;
+  transform: translate(0, -5px);
+}
+
+.AA-footer {
+  height: 30px;
+  transform: translate(0, -5px);
+  filter: invert(0.25);
+}

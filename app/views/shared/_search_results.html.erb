@@ -10,16 +10,16 @@
               <% @article_search.each do |article| %>
                 <% person = @all_users.where(name: article.content)[0] %>
                 <% if person.present? %>
-                  <p class="color-white">Author: <%= person.name %></p>
-                  <p class="color-white">Titles:</p>
+                  <h4 class="color-white">Author: <%= person.name.capitalize %></h4>
+                  <p class="color-white">Titles by <%= person.name.capitalize %>:</p>
                   <% @articles.where(user_id: person.id).each do |articlee| %>
-                    <p class="color-white"><%= link_to articlee.title, article_path(article.searchable_id) %></p>
+                    <p class="color-white"><%= link_to articlee.title, article_path(articlee.id) %></p>
                   <% end %>
                 <% else %>
                   <% if article.present? %>
                   <!-- the array below removes the user id that is also in the search results -->
                     <h4 class="color-white"> <%= link_to article.content[0..-3], article_path(article.searchable_id) %></h4>
-                    <p class="color-white" style="padding-left: 20px;">Aritcle by: <%= @all_users.find(Article.find(article.searchable_id).user_id).name %></p>
+                    <p class="color-white" style="padding-left: 20px;">Aritcle by: <%= @all_users.find(Article.find(article.searchable_id).user_id).name.capitalize %></p>
                   <% end %>
                 <% end %>
               <% end %>
