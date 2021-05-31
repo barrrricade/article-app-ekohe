@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-12">
       <h1>The Article Archives</h1>
-      <h2>Welcome <%= @user.name %></h2>
+      <h2>Welcome <%= @user.name.capitalize %></h2>
     </div>
   </div>
 </div>
@@ -25,7 +25,7 @@
           <tr>
             <td><%= link_to "#{article.title}", article_path(article) %></td>
             <td><p><%= article.view_count %></p></td>
-            <td><%= @all_users.find(article.user_id).name %></td>
+            <td><%= @all_users.find(article.user_id).name.capitalize %></td>
             <td><%= article.publishDate %></td>
             <td>
 
@@ -62,7 +62,7 @@
         <tr>
           <td><%= link_to "#{article.title}", article_path(article) %></td>
           <td><p><%= article.view_count %></p></td>
-          <td><%= @all_users.find(article.user_id).name %></td>
+          <td><%= @all_users.find(article.user_id).name.capitalize %></td>
           <td><%= article.publishDate %></td>
            <td>
               <%= link_to edit_article_path(article) do %>
