@@ -19,7 +19,7 @@
                   <% if article.present? %>
                   <!-- the array below removes the user id that is also in the search results -->
                     <h4 class="color-white"> <%= link_to article.content[0..-3], article_path(article.searchable_id) %></h4>
-                    <p class="color-white">Aritcle by: <%= @all_users.find(Article.find(article.searchable_id).user_id).name %></p>
+                    <p class="color-white" style="padding-left: 20px;">Aritcle by: <%= @all_users.find(Article.find(article.searchable_id).user_id).name %></p>
                   <% end %>
                 <% end %>
               <% end %>
